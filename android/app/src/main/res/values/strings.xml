@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ppsAlarmaRobo</string>
+    <string name="title_activity_main">ppsAlarmaRobo</string>
+    <string name="package_name">com.ppsAlarmaRobo.app</string>
+    <string name="custom_url_scheme">com.ppsAlarmaRobo.app</string>
+</resources>

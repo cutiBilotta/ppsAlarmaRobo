@@ -1,0 +1,6 @@
+{
+  "appId": "com.ppsAlarmaRobo.app",
+  "appName": "ppsAlarmaRobo",
+  "webDir": "www",
+  "bundledWebRuntime": false
+}

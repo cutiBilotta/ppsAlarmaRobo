@@ -1,20 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content class="background-image centrado" >
+  <ion-card *ngIf="showDialog"> 
+    <ion-card-header>
+      <ion-card-title>Cofirnar identidad</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item color="none">
+        <ion-input class="centrado" type='password' placeholder="Ingrese su password" [(ngModel)]="password"
+          name="password" required>
+        </ion-input>
+      </ion-item>
+      <ion-icon *ngIf="estado==''" class="btnVerificacion" id="btnVerificar"  name="chevron-forward-outline" (click)="activarDesactivarAlarma()"></ion-icon>
+      <ion-icon *ngIf="estado=='permitido'" class="btnVerificacion" id="btnSuccess" name="checkmark-done-outline"></ion-icon>
+      <ion-icon *ngIf="estado=='denegado'" class="btnVerificacion" id="btnFail" name="close-outline"></ion-icon>
+    </ion-card-content>
+    </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-icon *ngIf="presionado && !showDialog" name="power" id="buttonStart" (click)="activarDesactivarAlarma()"></ion-icon>
+        <ion-icon *ngIf="!presionado && !showDialog" name="power" id="buttonStop" (click)="activarDesactivarAlarma()"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <br>
+    <ion-col>
+      <ion-col size="6" offset="3">
+        <!-- <p *ngIf="presionado" class="ingresarDesdeDerecha">Alarma Activada</p> -->
+        <!-- <p>X: {{accelerationX}}</p>
+        <p>Y: {{accelerationY}}</p>
+        <p>Z: {{accelerationZ}}</p> -->
+      </ion-col>
+    </ion-col>
+  </ion-grid>
+ 
 </ion-content>

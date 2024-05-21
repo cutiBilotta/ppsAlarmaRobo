@@ -1,27 +1,136 @@
-#container {
-  text-align: center;
-
+ion-card{
+  *{
+      color: white;
+  }
+  ion-card-title{
+      margin-top: 50px;
+  }
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  border-radius: 100%;
+  top: 12.5%;
+  left: 10%;
+  z-index: 2; 
+  width: 19em;
+  height: 19em;
+  background-color: rgb(34, 33, 33);
+  box-shadow: 0px 0px 50px 30px white;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+#btnVerificar{
+
+}
+#btnFail{
+color: red;
+}
+#btnSuccess{
+color: green;
+}
+.btnVerificacion{
+  margin-top: 40px;
+  font-size: 400%;
+}
+.btnVerificacion:active{
+ transform: translate(5px);
+  color: gray;
+}
+@media ( max-height: 400px)
+{
+  ion-card{
+      top: 20.6%;
+  }
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.centrado{
+  text-align: center;
+}
+h2,p{
+  color: white;
 }
 
-#container a {
-  text-decoration: none;
+#buttonStart{
+  background-color: rgba(240, 37, 37, 0.733);
+  width: 19em;
+  height: 19em;
+}
+#buttonStop{    
+  background-color: rgba(67, 37, 240, 0.733);   
+  width: 19em;
+  height: 19em;
+}
+#buttonStart, #buttonStop{
+  position: relative;
+  top: 20%;
+
+  color: rgb(255, 255, 255);
+  border-radius: 100%;
+}
+.background-image{
+  --background:none;
+  background: url("../../assets/images/background-lock.jpg") no-repeat center center/cover;
+}
+#buttonStart{
+  animation-duration: 1s;
+  animation-name: zoom80;
+}
+#buttonStop{
+  animation-duration: 1s;
+  animation-name: zoom100;
+}
+p{
+   font-size:200%;
+   font-family: sans-serif;
+}
+.ingresarDesdeIzquierda{
+  animation-duration: 3s;
+  animation-name: ingresarDesdeIzquierda;
+}
+.ingresarDesdeDerecha{
+  animation-duration: 3s;
+  animation-name: ingresarDesdeDerecha;
+}
+
+@keyframes ingresarDesdeIzquierda{
+  to{
+     margin-left: 100%;
+     width: 100%;        
+  }
+  from{
+     margin-left: 0%;
+     width: 100%;        
+  }
+}
+@keyframes ingresarDesdeDerecha{
+   from{
+      margin-left: 100%;
+      width: 100%;        
+   }
+   to{
+      margin-left: 0%;
+      width: 100%;        
+   }
+}
+
+@keyframes zoom80{
+  from{
+      top: 30%;
+      width: 17em;
+      height: 17em;        
+  }
+  to{
+      width: 19em;
+      height: 19em;        
+
+  }
+}
+@keyframes zoom100{
+  from{
+      top: 30%;
+      width: 17em;
+      height: 17em;        
+  }
+  to{
+      width: 19em;
+      height: 19em;        
+
+  }
 }

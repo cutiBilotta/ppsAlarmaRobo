@@ -1,0 +1,32 @@
+
+<ion-content>
+  <div id="container">
+  <ion-card style="height: 80vh; width: 90vw; margin-top: 10%;">
+    <ion-card-header class="centrado">
+      <ion-card-title>
+        <h1>Ingreso</h1>
+      </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content card-transparent>
+      <form class="centrado">
+        <ion-item color="none">
+          <ion-input class="centrado" type='email' placeholder="Ingrese su correo" [(ngModel)]="user.email" name="email"
+            required>
+          </ion-input>
+        </ion-item>
+        <ion-item color="none">
+          <ion-input class="centrado" type='password' placeholder="Ingrese su contraseña" [(ngModel)]="user.password"
+            name="password" required></ion-input>
+        </ion-item>
+        <ion-button ion-button expand="full" shape="round" type="submit" (click)="onLogin()" block>Ingresar</ion-button>
+      </form>
+      <ion-item id="divUsuarios" class="centrado" color="none" lines="none">
+        <ion-icon class="iconUser" name="key-outline" *ngFor="let usuario of listaUsuarios"
+          (click)="seleccionarUsuario(usuario)"></ion-icon>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-content>
