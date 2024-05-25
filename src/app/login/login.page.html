@@ -1,32 +1,50 @@
 
 <ion-content>
-  <div id="container">
-  <ion-card style="height: 80vh; width: 90vw; margin-top: 10%;">
-    <ion-card-header class="centrado">
-      <ion-card-title>
-        <h1>Ingreso</h1>
-      </ion-card-title>
-    </ion-card-header>
+  <div class="ion-text-center" style="height: 18%; background-color:rgb(70,134,170); align-items: center; justify-content: center;">
 
-    <ion-card-content card-transparent>
-      <form class="centrado">
-        <ion-item color="none">
-          <ion-input class="centrado" type='email' placeholder="Ingrese su correo" [(ngModel)]="user.email" name="email"
-            required>
-          </ion-input>
-        </ion-item>
-        <ion-item color="none">
-          <ion-input class="centrado" type='password' placeholder="Ingrese su contraseña" [(ngModel)]="user.password"
-            name="password" required></ion-input>
-        </ion-item>
-        <ion-button ion-button expand="full" shape="round" type="submit" (click)="onLogin()" block>Ingresar</ion-button>
-      </form>
-      <ion-item id="divUsuarios" class="centrado" color="none" lines="none">
-        <ion-icon class="iconUser" name="key-outline" *ngFor="let usuario of listaUsuarios"
-          (click)="seleccionarUsuario(usuario)"></ion-icon>
-      </ion-item>
+    <img src="../../assets/images/siren.png" style="height: 100px; width: auto; margin-top: 15px;" alt="">
+    <br><br>
 
-    </ion-card-content>
-  </ion-card>
-</div>
+  </div>
+
+  <div class="login-container" style="height: 77%;">
+
+    <ion-card>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-select placeholder="Seleccione un usuario" [(ngModel)]="selectedUser" (ionChange)="seleccionarUsuario(selectedUser)">
+              <ion-select-option *ngFor="let usuario of listaUsuarios" [value]="usuario">{{usuario.email}}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-content class="ion-text-center">
+        <ion-item>
+          <ion-label position="floating">Email</ion-label><br>
+          <ion-input [(ngModel)]="user.email" type="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Clave</ion-label><br>
+          <ion-input [(ngModel)]="user.password" type="password"></ion-input>
+        </ion-item>
+        <ion-button  shape="round" color="success" (click)="onLogin()">Ingresar</ion-button>
+      </ion-card-content>
+
+      <div *ngIf="mostrarSpinner" class="ion-text-center spinner">
+        <img src="../../assets/images/siren.png" style="height: 50px" alt="">
+
+
+      </div>
+      <br><br>
+    </ion-card>
+
+    
+  </div>
+  <div style="background-color: rgb(70,134,170); height: 5%">
+   
+  </div>
 </ion-content>

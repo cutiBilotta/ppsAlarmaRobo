@@ -1,0 +1,18 @@
+<ion-content [fullscreen]="true">
+  <!-- Initial white background with the app icon -->
+  <div class="initial-splash" [ngClass]="{'hidden': !showInitialSplash}">
+    <img src="../../assets/images/siren.png" class="initial-icon" alt="App Icon">
+  </div>
+
+  <!-- Main content with animations -->
+  <div class="main-content" [ngClass]="{'hidden': showInitialSplash, 'fade-in': isFadedIn}">
+
+    <div class="splash-background">
+      <h1 class="app-name" style="color: black;">Alarma Anti Robo</h1>
+
+      <ion-img src="../../assets/images/siren.png" class="app-icon"></ion-img>
+      <h2 class="app-name" style="color: #282626;">Agustina Bilotta</h2>
+      <h3 class="app-name" style="color: #7e7d7d;">4° A</h3>
+    </div>
+  </div>
+</ion-content>

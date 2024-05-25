@@ -1,11 +1,61 @@
-
-
-#container{
-    background-image: url('../../assets/images/background-lock.jpg');
-    height: 100%;
-    width: 100%;
-    text-align: center;
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    
+    height: 100%;
+    background-image: url('../../assets/images/background-lock.jpg');
+    background-size: cover;
+  }
+  
+  ion-card {
+    width: 80%;
+    max-width: 400px;
+    margin: 10px;
+  }
+
+  ion-card-header {
+    text-align: center;
+  }
+  
+  ion-card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  ion-item {
+    margin-bottom: 20px;
+  }
+  
+  ion-button {
+    margin-top: 20px;
+  }
+  
+  ion-input {
+    --padding-start: 10px;
+    --padding-end: 10px;
+    --padding-top: 5px;
+    --padding-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  ion-label {
+    --color-focused: #3880ff;
+  }
+  
+  .spinner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: rotate 1s linear infinite; /* Aplica la animación "rotate" */
 }
 
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

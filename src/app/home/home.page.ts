@@ -4,6 +4,8 @@ import { DeviceMotion, DeviceMotionAccelerationData } from '@ionic-native/device
 import { Flashlight } from '@ionic-native/flashlight/ngx';
 import { AuthService } from 'src/app/services/auth.service';
 import { Vibration } from '@ionic-native/vibration/ngx';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-admin',
   templateUrl: './home.page.html',
@@ -38,7 +40,7 @@ export class HomePage implements OnInit {
     private deviceMotion: DeviceMotion,
     private flashlight: Flashlight,
     private authService: AuthService,
-    private vibration: Vibration
+    private vibration: Vibration, private afAuth:AngularFireAuth, private router:Router
   ) {
     // this.audioIzquierda = new Audio("../../assets/audios/estaHurtando.wav");
     // this.audioDerecha = new Audio("../../assets/audios/esMio.wav");
@@ -55,6 +57,8 @@ export class HomePage implements OnInit {
     if (this.presionado) {//si esta presionado entro para mostrar el dialog de deslogeo
       this.showDialog = true;
       if (this.password == this.authService.currentUser.password) {//verifico que la contraseña sea correcta
+        this.flashlight.switchOff();
+
         this.estado = "permitido"// muestro la doble tilde del html
         setTimeout(() => {
           this.presionado = false; //cambio el estado del boton
@@ -71,9 +75,11 @@ export class HomePage implements OnInit {
         setTimeout(() => {
           this.estado = ""//muestro el icono de ingreso en html
         }, 1000);
-        if (this.countPasswordWrong > 2) {
+        if (this.countPasswordWrong >1 ) {
           this.audio.src = this.invalidPassword;
           this.audio.play();
+          this.flashlight.switchOn();
+          setTimeout(() => { this.flashlight.switchOff();},5000);
         }
       }
     }
@@ -111,7 +117,7 @@ export class HomePage implements OnInit {
     if (this.posicionActual!=this.posicionAnterior){
       this.posicionAnterior="plano";
 
-      this.audio.src = this.audioVibrando;
+      //this.audio.src = this.audioVibrando;
     }
     this.primerIngreso ? null : this.audio.play();
     this.primerIngreso ? null : this.vibration.vibrate(5000);
@@ -174,6 +180,12 @@ export class HomePage implements OnInit {
     this.mostrarDialog = true;
     this.primerIngreso = true;
     this.subscription.unsubscribe();
+  }
+
+  async cerrarSesion(){
+
+    await this.afAuth.signOut();
+    this.router.navigateByUrl('login');
   }
 
 }
